@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 
-import com.parthtejani.listminer.MaximumCommonSubgraph.Result;
+import com.parthtejani.listminer.Graph.Result;
 
 /**
  * An implementation of an algorithm to mine periodic subgraphs in a dynamic network.
@@ -174,28 +174,28 @@ public class ListMiner {
                  * 5) F AND G = H != (F OR G)       flush g, add F, repeat MCS with other descriptors with intersected result
                  */
 
-                Result result = MaximumCommonSubgraph.compute(currentDescriptor.graph, descriptors.get(i).graph);
+                Result result = Graph.compute(currentDescriptor.graph, descriptors.get(i).graph);
 
-                if (result.scenario == MaximumCommonSubgraph.NO_INTERSECTION) {
+                if (result.scenario == Graph.NO_INTERSECTION) {
                     newDescriptors.add(currentDescriptor);
                     for (int j = i; j < dSize; j++) {
                         flush(descriptors.get(j), period, phase);
                     }
                     break;
-                } else if (result.scenario == MaximumCommonSubgraph.EQUAL_INTERSECTION) {
+                } else if (result.scenario == Graph.EQUAL_INTERSECTION) {
                     for (int j = i; j < dSize; j++) {
                         descriptors.get(j).incrementCount();
                         newDescriptors.add(descriptors.get(j));
                     }
                     break;
-                } else if (result.scenario == MaximumCommonSubgraph.PARTIAL_INTERSECTION_EQUALS_G) {
+                } else if (result.scenario == Graph.PARTIAL_INTERSECTION_EQUALS_G) {
                     newDescriptors.add(currentDescriptor);
                     for (int j = i; j < dSize; j++) {
                         descriptors.get(j).incrementCount();
                         newDescriptors.add(descriptors.get(j));
                     }
                     break;
-                } else if (result.scenario == MaximumCommonSubgraph.PARTIAL_INTERSECTION_EQUALS_F) {
+                } else if (result.scenario == Graph.PARTIAL_INTERSECTION_EQUALS_F) {
                     flush(descriptors.get(i), period, phase);
                     Graph intersection = new Graph(result.elements);
 
