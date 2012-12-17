@@ -2,7 +2,6 @@
 This is an algorithm to mine periodic subgraphs in a dynamic network. The original algorithm is discussed in the paper ["Periodic subgraph mining in dynamic networks"](http://compbio.cs.uic.edu/~mayank/papers/LahiriBergerWolf_PeriodicSubgraph09.pdf "Periodic subgraph mining in dynamic networks") by Lahiri and Berger-Wolf, and the implementation is located [here](http://compbio.cs.uic.edu/software/periodic/ "PSE Miner"). The algorithm in this project is based on the paper "Speedup for a periodic subgraph miner" by Apostolico, Barbares, and Pizzi.
 
 ##Purpose
------
 The goal of the algorithm is to capture periodic and frequent interactions in a dynamic network. A dynamic network can be represented as a series of graphs at different time steps. 
 
 ![screenshot](https://raw.github.com/parthtejani/periodic-subgraph-miner/master/screenshots/network.png "Dynamic Network")
@@ -18,7 +17,6 @@ In this network, there are 4 periodic subgraphs with a minimum count of 2:
 	*Edge 1-2 = 6, Edge 1-3 = 7, Edge 1-4 = 8, Edge 1-5 = 9
  
 ## Usage
-----
 ### Input Arguments
 
 ##### Required Parameters
@@ -26,7 +24,7 @@ In this network, there are 4 periodic subgraphs with a minimum count of 2:
 	1. An input file		-i
 	2. An output file		-o
 
-###### Input File
+##### Input File
 The input file contains lines with tokens separated by whitespace that represent the graph at a particular time step. The first token is the actual time (can be a second, a minute, a date, a year, etc). The rest of the tokens are a series of integers in ascending order that represent the graph at that particular timestamp.
 
 Example input file text:
@@ -41,7 +39,7 @@ The integers representing the graph are uniquely mapped to vertexes and edges as
 
 ![screenshot](https://raw.github.com/parthtejani/periodic-subgraph-miner/master/screenshots/graph-representation.png "Graph Representation")
 
-###### Output File
+##### Output File
 The output file contains data specific for grading this project. To view the actual periodic subgraphs, use the argument "-d" when calling the program to print the subgraphs to the console. 
 
 Example console output:
@@ -67,7 +65,6 @@ m = phase
 
 Time smoothing is not implemented because it was not required for this project.
 ### Commands
------
 
 ##### Setup:
 
