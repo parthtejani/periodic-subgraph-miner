@@ -100,7 +100,7 @@ public class ListMiner {
             //current row (period) of table
             for (int i = 0; i < time-1; i++) {
                 ArrayList<Descriptor> descriptors = new ArrayList<Descriptor>(1);
-                descriptors.add(new Descriptor(graphs.get(i), 1, i));
+                descriptors.add(new Descriptor(graphs.get(i), 1, i+1));
                 descriptorTable.set(time-1, i, descriptors);
 
                 if (performSubsumation) {
